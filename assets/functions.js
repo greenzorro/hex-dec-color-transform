@@ -122,23 +122,11 @@ function dec2hex (rgb) {
 function zeroClipboardCopy () {
 	var clip = new ZeroClipboard($(".copy"));
 	ZeroClipboard.on("aftercopy", function(e) {
-		// e = {
-		// 	type: "aftercopy",
-		// 	target: currentlyActivatedElementOrNull,
-		// 	relatedTarget: dataClipboardElementTargetOfCurrentlyActivatedElementOrNull,
-		// 	currentTarget: flashSwfObjectRef,
-		// 	timeStamp: Date.now(),
-		// 	success: {
-		// 		"text/plain": true,
-		// 		"text/html": true,
-		// 		"application/rtf": false
-		// 	},
-		// 	data: {
-		// 		"text/plain": "Blah",
-		// 		"text/html": "<b>Blah</b>",
-		// 		"application/rtf": "{\\rtf1\\ansi\n{\\b Blah}}"
-		// 	}
-		// };
-		console.log(e.target);
+		var thisTip = e.target.find("span");
+		thisTip.removeClass("copied");
+		thisTip.addClass("copied");
+		var timer = setTimeout(function () {
+			thisTip.removeClass("copied");
+		},1000);
 	});
 }

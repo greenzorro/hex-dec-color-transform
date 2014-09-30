@@ -74,8 +74,8 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 .transform .copy span.copied {
 	transform-origin: 0% 50%;
 	-webkit-transform-origin: 0% 50%;
-	animation: copy_tip 0.5s ease-in-out;
-	-webkit-animation: copy_tip 0.5s ease-in-out;
+	animation: copy_tip 1s ease-in-out;
+	-webkit-animation: copy_tip 1s ease-in-out;
 }
 @keyframes copy_tip {
 	0% { opacity: 0; }

@@ -69,7 +69,7 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 	border-bottom: 5px dashed transparent;
 	position: absolute;
 	left: -6px;
-	top: 0.6em;
+	top: 25%;
 }
 .transform .hex {
 	float: left;

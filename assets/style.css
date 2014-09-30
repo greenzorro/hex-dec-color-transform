@@ -77,8 +77,8 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 }
 .transform .copy span.copied {
 	opacity: 1;
-	transform: translate(0.2em, 0);
-	-webkit-transform: translate(0.2em, 0);
+	transform: translate(0.1em, 0);
+	-webkit-transform: translate(0.1em, 0);
 }
 .transform .hex {
 	float: left;

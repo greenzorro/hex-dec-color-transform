@@ -81,13 +81,13 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 	0% { opacity: 0; transform: scale(0); }
 	15% { opacity: 1; transform: scale(1); }
 	85% { opacity: 1; transform: translate(0, 0); }
-	100% { opacity: 0; transform: translate(0.5em, 0); }
+	100% { opacity: 0; transform: translate(0.2em, 0); }
 }
 @-webkit-keyframes copy_tip {
 	0% { opacity: 0; -webkit-transform: scale(0); }
 	15% { opacity: 1; -webkit-transform: scale(1); }
 	85% { opacity: 1; -webkit-transform: translate(0, 0); }
-	100% { opacity: 0; -webkit-transform: translate(0.5em, 0); }
+	100% { opacity: 0; -webkit-transform: translate(0.2em, 0); }
 }
 .transform .hex {
 	float: left;

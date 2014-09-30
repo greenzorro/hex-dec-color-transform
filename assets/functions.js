@@ -127,6 +127,6 @@ function zeroClipboardCopy () {
 		thisTip.addClass("copied");
 		var timer = setTimeout(function () {
 			thisTip.removeClass("copied");
-		},1000);
+		},700);
 	});
 }

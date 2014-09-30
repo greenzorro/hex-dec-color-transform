@@ -47,7 +47,7 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 	background-color: #e7e7e7;
 }
 .transform .copy span {
-	display: block;
+	display: none;
 	width: 3em;
 	padding: 0.2em 0.6em;
 	background: #333;
@@ -70,6 +70,9 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 	position: absolute;
 	left: -6px;
 	top: 0.35em;
+}
+.transform .copy span.copied {
+	display: block;
 }
 .transform .hex {
 	float: left;

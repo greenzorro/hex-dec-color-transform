@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>色值转换工具</title>
 <link href="http://greenzorro.github.io/colacdn/assets/css/reset.css" rel="stylesheet" type="text/css" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="assets/style.css" rel="stylesheet" type="text/css" />
 <script src="http://greenzorro.github.io/colacdn/assets/js/jquery-latest.js"></script>
-<script src="functions.js"></script>
+<script src="assets/ZeroClipboard/ZeroClipboard.min.js"></script>
+<script src="assets/functions.js"></script>
 </head>
 
 <body>
@@ -16,8 +17,8 @@
 <div class="transform clearfix">
     <div class="hex clearfix">
     	<label>0x</label>
-    	<input type="text" maxlength="6" tabindex="1">
-        <a class="copy" href="javascript:;">
+    	<input id="hex" type="text" maxlength="6" tabindex="1" value="aaaaaa">
+        <a class="copy" data-clipboard-target="hex" href="javascript:;">
             <span>已复制</span>
         </a>
     </div>
@@ -25,22 +26,22 @@
     <div class="dec">
     	<div class="r group clearfix">
     		<label>R</label>
-    		<input type="text" maxlength="3" tabindex="2">
-            <a class="copy" href="javascript:;">
+    		<input id="r" type="text" maxlength="3" tabindex="2">
+            <a class="copy" data-clipboard-target="r" href="javascript:;">
                 <span>已复制</span>
             </a>
     	</div>
     	<div class="g group clearfix">
     		<label>G</label>
-    		<input type="text" maxlength="3" tabindex="3">
-            <a class="copy" href="javascript:;">
+    		<input id="g" type="text" maxlength="3" tabindex="3">
+            <a class="copy" data-clipboard-target="g" href="javascript:;">
                 <span>已复制</span>
             </a>
     	</div>
     	<div class="b group clearfix">
     		<label>B</label>
-    		<input type="text" maxlength="3" tabindex="4">
-            <a class="copy" href="javascript:;">
+    		<input id="b" type="text" maxlength="3" tabindex="4">
+            <a class="copy" data-clipboard-target="b" href="javascript:;">
                 <span>已复制</span>
             </a>
     	</div>

@@ -113,3 +113,9 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 	text-align: center;
 	color: #aaa;
 }
+
+
+/*zeroClipboard*/
+.global-zeroclipboard-container object {
+	cursor: pointer;
+}

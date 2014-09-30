@@ -28,6 +28,7 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 	line-height: 1.4em;
 	padding: 0.8em 2%;
 	border: 1px solid #dfdfdf;
+	border-radius: 5px 0 0 5px;
 	font-size: 1em;
 }
 .transform .copy {
@@ -39,9 +40,10 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 	border-left: none;
 	background: #eee url(icon_copy.png) no-repeat center center;
 	background-size: 24px 24px;
+	border-radius: 0 5px 5px 0;
+	position: relative;
 	transition: background-color 0.3s ease-out;
 	-webkit-transition: background-color 0.3s ease-out;
-	position: relative;
 }
 .transform .copy:hover {
 	background-color: #e7e7e7;

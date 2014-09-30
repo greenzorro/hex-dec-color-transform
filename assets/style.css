@@ -78,14 +78,14 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 	-webkit-animation: copy_tip 1s ease-in-out;
 }
 @keyframes copy_tip {
-	0% { opacity: 0; }
-	15% { opacity: 1; }
+	0% { opacity: 0; transform: scale(0); }
+	15% { opacity: 1; transform: scale(1); }
 	85% { opacity: 1; }
 	100% { opacity: 0; }
 }
 @-webkit-keyframes copy_tip {
-	0% { opacity: 0; }
-	15% { opacity: 1; }
+	0% { opacity: 0; -webkit-transform: scale(0); }
+	15% { opacity: 1; -webkit-transform: scale(1); }
 	85% { opacity: 1; }
 	100% { opacity: 0; }
 }

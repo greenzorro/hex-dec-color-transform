@@ -122,7 +122,7 @@ function dec2hex (rgb) {
 function zeroClipboardCopy () {
 	var clip = new ZeroClipboard($(".copy"));
 	ZeroClipboard.on("aftercopy", function(e) {
-		var thisTip = e.target.find("span");
+		var thisTip = $(e.target).find("span");
 		thisTip.removeClass("copied");
 		thisTip.addClass("copied");
 		var timer = setTimeout(function () {

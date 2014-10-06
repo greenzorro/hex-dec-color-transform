@@ -49,6 +49,7 @@ function inputListener () {
 		else {
 			clearDec();
 		}
+		decBox.removeClass("error");
 	}
 }
 

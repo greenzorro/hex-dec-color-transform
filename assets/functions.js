@@ -18,25 +18,31 @@ function inputListener () {
 	var gBox = $(".dec .g input");
 	var bBox = $(".dec .b input");
 	var hexVal;
-	hexBox.focus(function () {
-		hexBox.keyup(function(){  //keyup事件处理
-			hexVal = hexBox.val();
-			if (hexCorrect(hexVal)) {
-				writeDec(hex2dec(hexVal));
-			}
-			else {
-				clearDec();
-			}
-		}).bind("paste",function(){  //CTR+V事件处理
-			hexVal = hexBox.val();
-			if (hexCorrect(hexVal)) {
-				writeDec(hex2dec(hexVal));
-			}
-			else {
-				clearDec();
-			}
-		});
-	})
+	hexBox.keyup(function(){  //keyup事件处理
+		transformHex();
+	}).bind("paste",function(){  //CTR+V事件处理
+		transformHex();
+	});
+	function transformHex () {
+		hexVal = hexBox.val();
+		if (hexCorrect(hexVal)) {
+			writeDec(hex2dec(hexVal));
+			saveToRecent(hexVal);
+		}
+		else {
+			clearDec();
+		}
+	}
+}
+
+
+// 保存到最近使用的颜色
+function saveToRecent (hex) {
+	var recentList = $(".recent p");
+	if ($(".recent p a").length > 9) {
+		recentList.find("a:last-of-type").remove();
+	}
+	recentList.prepend("<a href='javascript:;' style='background-color: #" + hex + "'>" + hex + "</a>");
 }
 
 
@@ -67,7 +73,7 @@ function clearDec () {
 
 // 检测十六进制色值是否合法
 function hexCorrect (hex) {
-	if (hex.length > 5 && parseInt(hex,16).toString(16) == hex) {
+	if (hex.length > 5 && addZero(parseInt(hex,16).toString(16),6) == hex) {
 		return true;
 	}
 	else {
@@ -109,6 +115,11 @@ function dec2hex (rgb) {
 	return hex;
 }
 
+
+// 补零
+function addZero(str,length){               
+    return new Array(length - str.length + 1).join("0") + str;              
+}
 
 
 

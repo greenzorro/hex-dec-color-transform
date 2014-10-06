@@ -56,9 +56,11 @@ function inputListener () {
 // 最近使用的颜色
 function recentColor () {
 	$(".recent p").on("click","a",function () {
-		var thisHex = $(this).html();
+		var thisHex = $(this).parent().find("i").html();
 		writeHex(thisHex);
 		writeDec(hex2dec(thisHex));
+		$(".recent p span").removeClass("current");
+		$(this).parent().addClass("current");
 	})
 }
 
@@ -66,12 +68,13 @@ function recentColor () {
 // 保存到最近使用的颜色
 function saveToRecent (hex) {
 	var recentList = $(".recent p");
-	var lastColor = recentList.find("a:first-of-type").html();
+	var lastColor = recentList.find("span:first-of-type i").html();
 	if (lastColor != "" && lastColor != hex) {
-		if ($(".recent p a").length > 9) {
-			recentList.find("a:last-of-type").remove();
+		if ($(".recent p span").length > 9) {
+			recentList.find("span:last-of-type").remove();
 		}
-		recentList.prepend("<a href='javascript:;' style='background-color: #" + hex + "'>" + hex + "</a>");
+		recentList.find("span").removeClass("current");
+		recentList.prepend("<span class='current'><a href='javascript:;' style='background-color: #" + hex + "'></a><i>" + hex + "</i></span>");
 	};
 }
 

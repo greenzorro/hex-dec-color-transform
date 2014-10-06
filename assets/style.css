@@ -112,23 +112,61 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 
 /*recent*/
 .recent {
-	max-width: 45em;
+	max-width: 50em;
 	margin: 0 auto 8em;
 }
 .recent h2 {
 	padding: 0 0 1em;
 }
-.recent p a {
+.recent p span {
 	float: left;
 	display: block;
+	width: 10%;
+	text-align: center;
+}
+.recent p a {
+	display: inline-block;
 	width: 4em;
 	height: 4em;
-	line-height: 10.5em;
-	margin: 0 0.5em 0 0;
+	margin: 0 auto;
 	border-radius: 50%;
 	box-shadow: inset 0 0 1px #999;
-	text-align: center;
+	position: relative;
+	top: 0;
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	transition: transform 0.3s ease-out;
+	-webkit-transition: -webkit-transform 0.3s ease-out;
+	animation: zoom_in 0.3s ease-out both;
+	-webkit-animation: zoom_in 0.3s ease-out both;
+}
+.recent p .current a {
+	transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+}
+.recent p i {
+	display: block;
+	line-height: 2.4em;
 	color: #aaa;
+	opacity: 0;
+	animation: fade_in 0.15s ease-out 0.3s both;
+	-webkit-animation: fade_in 0.15s ease-out 0.3s both;
+}
+@keyframes zoom_in {
+	0% { width: 0; height: 0; top: 2em; }
+	100% { width: 4em; height: 4em; top: 0; }
+}
+@-webkit-keyframes zoom_in {
+	0% { width: 0; height: 0; top: 2em; }
+	100% { width: 4em; height: 4em; top: 0; }
+}
+@keyframes fade_in {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@-webkit-keyframes fade_in {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
 }
 
 

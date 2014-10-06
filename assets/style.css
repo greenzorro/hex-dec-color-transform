@@ -7,7 +7,7 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 .transform {
 	max-width: 50em;
 	height: 10em;
-	margin: 5em auto 3em;
+	margin: 5em auto 8em;
 }
 .transform .group {
 	padding: 0.2em 0;
@@ -30,6 +30,12 @@ body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-si
 	border: 1px solid #dfdfdf;
 	border-radius: 5px 0 0 5px;
 	font-size: 1em;
+	transition: border-color 0.3s ease-out, background-color 0.3s ease-out;
+	-webkit-transition: border-color 0.3s ease-out, background-color 0.3s ease-out;
+}
+.transform input.error {
+	border-color: #ee7777;
+	background-color: #ffeeee;
 }
 .transform .copy {
 	float: left;

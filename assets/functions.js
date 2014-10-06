@@ -2,6 +2,7 @@ $(function () {
 
 	inputListener(); //输入框监听
 	zeroClipboardCopy(); //复制到剪贴板
+	recentColor(); //最近使用的颜色
 
 })
 
@@ -14,17 +15,33 @@ $(function () {
 // 输入框监听
 function inputListener () {
 	var hexBox = $(".hex input");
-	var rBox = $(".dec .r input");
-	var gBox = $(".dec .g input");
-	var bBox = $(".dec .b input");
-	var hexVal;
+	var decBox = $(".dec input");
 	hexBox.keyup(function(){  //keyup事件处理
 		transformHex();
 	}).bind("paste",function(){  //CTR+V事件处理
 		transformHex();
 	});
+	decBox.blur(function () {
+		var thisVal = parseInt($(this).val());
+		var rgb = [$("#r").val(), $("#g").val(), $("#b").val()];
+		if (thisVal < 0 || thisVal > 255) {
+			$(this).addClass("error");
+		}
+		else {
+			$(this).removeClass("error");
+		}
+		if (decCorrect(rgb)) {
+			writeHex(dec2hex(rgb));
+		}
+	})
+	decBox.keyup(function(){  //keyup事件处理 
+		$(this).val($(this).val().replace(/\D|^0/g,''));  
+	}).bind("paste",function(){  //CTR+V事件处理 
+		$(this).val($(this).val().replace(/\D|^0/g,''));  
+	})
+	// 转换十六进制颜色
 	function transformHex () {
-		hexVal = hexBox.val();
+		var hexVal = hexBox.val();
 		if (hexCorrect(hexVal)) {
 			writeDec(hex2dec(hexVal));
 			saveToRecent(hexVal);
@@ -36,13 +53,26 @@ function inputListener () {
 }
 
 
+// 最近使用的颜色
+function recentColor () {
+	$(".recent p").on("click","a",function () {
+		var thisHex = $(this).html();
+		writeHex(thisHex);
+		writeDec(hex2dec(thisHex));
+	})
+}
+
+
 // 保存到最近使用的颜色
 function saveToRecent (hex) {
 	var recentList = $(".recent p");
-	if ($(".recent p a").length > 9) {
-		recentList.find("a:last-of-type").remove();
-	}
-	recentList.prepend("<a href='javascript:;' style='background-color: #" + hex + "'>" + hex + "</a>");
+	var lastColor = recentList.find("a:first-of-type").html();
+	if (lastColor != "" && lastColor != hex) {
+		if ($(".recent p a").length > 9) {
+			recentList.find("a:last-of-type").remove();
+		}
+		recentList.prepend("<a href='javascript:;' style='background-color: #" + hex + "'>" + hex + "</a>");
+	};
 }
 
 
@@ -86,7 +116,7 @@ function hexCorrect (hex) {
 function decCorrect (rgb) {
 	var flag = 1;
 	for (var i = 0; i < rgb.length; i++) {
-		if(rgb[i] < 0 || rgb[i] > 255) {
+		if(rgb[i] == "" || rgb[i] < 0 || rgb[i] > 255) {
 			flag = 0;
 		}
 	};
@@ -111,7 +141,7 @@ function hex2dec (hex) {
 
 // 十进制转十六进制
 function dec2hex (rgb) {
-	var hex = rgb[0].toString(16) + rgb[1].toString(16) + rgb[2].toString(16);
+	var hex = addZero(parseInt(rgb[0]).toString(16), 2) + addZero(parseInt(rgb[1]).toString(16), 2) + addZero(parseInt(rgb[2]).toString(16), 2);
 	return hex;
 }
 

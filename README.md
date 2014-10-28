@@ -1,4 +1,4 @@
-hex-dec-color-transform [unfinished]
+hex-dec-color-transform
 =======================
 
 A color value transforming tool (hexadecimal and decimal)

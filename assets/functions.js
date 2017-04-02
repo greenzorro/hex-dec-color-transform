@@ -1,7 +1,7 @@
 $(function () {
 
 	inputListener(); //输入框监听
-	zeroClipboardCopy(); //复制到剪贴板
+	clipboardCopy(); //复制到剪贴板
 	recentColor(); //最近使用的颜色
 
 })
@@ -35,9 +35,9 @@ function inputListener () {
 		}
 	})
 	decBox.keyup(function(){  //keyup事件处理 
-		$(this).val($(this).val().replace(/\D|^0/g,''));  
+		$(this).val($(this).val().replace(/\D+/g,''));  
 	}).bind("paste",function(){  //CTR+V事件处理 
-		$(this).val($(this).val().replace(/\D|^0/g,''));  
+		$(this).val($(this).val().replace(/\D+/g,''));  
 	})
 	// 转换十六进制颜色
 	function transformHex () {
@@ -107,7 +107,7 @@ function clearDec () {
 
 // 检测十六进制色值是否合法
 function hexCorrect (hex) {
-	if (hex.length > 5 && addZero(parseInt(hex,16).toString(16),6) == hex) {
+	if (hex.length == 6 && hex.toLowerCase() == addZero(parseInt(hex,16).toString(16),6).toLowerCase()) {
 		return true;
 	}
 	else {
@@ -164,7 +164,7 @@ function addZero(str,length){
 
 
 // 复制到剪贴板
-function zeroClipboardCopy () {
+function clipboardCopy () {
 	var clip = new ZeroClipboard($(".copy"));
 	ZeroClipboard.on("aftercopy", function(e) {
 		var thisTip = $(e.target).find("span");

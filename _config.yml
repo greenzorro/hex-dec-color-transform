@@ -1,8 +1,0 @@
-title: Hex-dec-color-transform
-description: A color value transforming tool (hexadecimal and decimal)
-google_analytics: 
-show_downloads: true
-theme: jekyll-theme-cayman
-
-gems:
-  - jekyll-mentions

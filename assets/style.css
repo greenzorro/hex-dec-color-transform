@@ -1,4 +1,5 @@
 body { font-family: 'microsoft yahei','stheiti',sans-serif; color: #333; font-size: 1em; }
+a { color: #31b5bd; }
 .title { margin: 50px 0 0; font-size: 2em; font-weight: normal; text-align: center; }
 .copyright { margin: 50px 0 50px; padding: 20px 0 0; border-top: 1px solid #eee; text-align: center; color: #aaa; }
 

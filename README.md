@@ -1,6 +1,6 @@
 hex-dec-color-transform
 =======================
 
-A color value transforming tool (hexadecimal and decimal)
+Color value transformation between hexadecimal number and decimal number.
 
 http://greenzorro.github.io/hex-dec-color-transform/

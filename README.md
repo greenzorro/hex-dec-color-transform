@@ -1,4 +1,4 @@
-hex-dec-color-transform
+Hex-dec-color-transform
 =======================
 
 Color value transformation between hexadecimal number and decimal number.
